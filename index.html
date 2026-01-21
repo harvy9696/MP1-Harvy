@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP1 & MP5 by Harvy Belgera</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f1f17;
+            color: #eafff1;
+            margin: 0;
+            padding: 40px;
+        }
+
+        section {
+            background-color: #142c21;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #3cff9a;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 12px;
+            background-color: #3cff9a;
+            color: #0f1f17;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #2edb83;
+        }
+
+        div {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #0f1f17;
+            border-radius: 6px;
+            min-height: 20px;
+        }
+
+        hr {
+            margin: 40px auto;
+            max-width: 500px;
+            border: 1px solid #2edb83;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MP1 SECTION -->
+    <section>
+        <h1>MP1: Replace All Spaces</h1>
+
+        <input type="text" id="mp1Input" placeholder="Enter text">
+        <button id="mp1Btn">Replace All</button>
+
+        <div id="mp1Output">Output will appear here...</div>
+    </section>
+
+    <hr>
+
+    <!-- MP5 SECTION -->
+    <section>
+        <h1>MP5: EmailCheck</h1>
+
+        <input type="text" id="mp5Input" placeholder="Enter your email">
+        <button id="mp5Btn">Check Email</button>
+
+        <div id="mp5Output">Output will appear here...</div>
+    </section>
+
+    <script>
+        document.getElementById("mp1Btn").addEventListener("click", function() {
+            let text = document.getElementById("mp1Input").value;
+            let result = text.replace(/ /g, "-");
+            document.getElementById("mp1Output").textContent = result;
+        });
+
+        document.getElementById("mp5Btn").addEventListener("click", function() {
+            let email = document.getElementById("mp5Input").value;
+            let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            document.getElementById("mp5Output").textContent =
+                pattern.test(email)
+                ? "✔ Valid email format"
+                : "✘ Invalid email format";
+        });
+    </script>
+
+</body>
+</html>
